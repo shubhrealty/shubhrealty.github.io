@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubh Realty | Real Estate Broker</title>
+  <style>
+    :root {
+      --primary: #0f766e; /* teal */
+      --secondary: #134e4a;
+      --light: #f0fdfa;
+      --dark: #0f172a;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: #ffffff;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+      color: var(--secondary);
+    }
+    .about {
+      text-align: center;
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .project-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .project-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+    .project-card .content {
+      padding: 18px;
+    }
+    .project-card h3 {
+      margin-top: 0;
+    }
+    .project-card button {
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    .add-project {
+      margin-top: 50px;
+      text-align: center;
+      background: var(--light);
+      padding: 30px;
+      border-radius: 12px;
+    }
+    .add-project input, .add-project textarea {
+      width: 100%;
+      max-width: 420px;
+      padding: 12px;
+      margin: 6px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .add-project button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .testimonials {
+      background: var(--light);
+    }
+    .testimonial {
+      max-width: 750px;
+      margin: 20px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      font-style: italic;
+    }
+    .contact {
+      text-align: center;
+    }
+    .contact-details {
+      margin-bottom: 35px;
+      font-size: 18px;
+    }
+    form {
+      max-width: 520px;
+      margin: auto;
+      background: var(--light);
+      padding: 30px;
+      border-radius: 12px;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      cursor: pointer;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 16px;
+    }
+    footer {
+      background: #020617;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Shubh Realty Logo" style="max-width:140px;margin-bottom:20px;" />
+  <h1>Shubh Realty</h1>
+  <p>Your Trusted Partner in Real Estate</p>
+</header>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p class="about">
+    Shubh Realty is a professional real estate brokerage firm dedicated to helping
+    clients buy, sell, and invest in premium residential and commercial properties.
+    Our foundation is built on trust, transparency, and long-term relationships.
+  </p>
+</section>
+
+<section id="projects">
+  <h2>Our Projects</h2>
+  <div class="projects-grid" id="projectsGrid">
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300" alt="Project 1">
+      <div class="content">
+        <h3>Green Residency</h3>
+        <p>Modern residential apartments with lifestyle amenities.</p>
+        <button onclick="removeProject(this)">Remove</button>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300" alt="Project 2">
+      <div class="content">
+        <h3>Shubh Heights</h3>
+        <p>Premium homes located in prime city locations.</p>
+        <button onclick="removeProject(this)">Remove</button>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300" alt="Project 3">
+      <div class="content">
+        <h3>Skyline Plaza</h3>
+        <p>Commercial spaces designed for growing businesses.</p>
+        <button onclick="removeProject(this)">Remove</button>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300" alt="Project 4">
+      <div class="content">
+        <h3>Harmony Villas</h3>
+        <p>Luxury villas surrounded by nature and open spaces.</p>
+        <button onclick="removeProject(this)">Remove</button>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300" alt="Project 5">
+      <div class="content">
+        <h3>City Center Hub</h3>
+        <p>Retail and office spaces at a strategic city location.</p>
+        <button onclick="removeProject(this)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="add-project">
+    <h3>Add New Project</h3>
+    <input type="text" id="projectTitle" placeholder="Project Title" />
+    <textarea id="projectDesc" placeholder="Project Description"></textarea>
+    <input type="text" id="projectImage" placeholder="Image URL" />
+    <button onclick="addProject()">Add Project</button>
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+  <h2>Client Testimonials</h2>
+  <div class="testimonial">“Shubh Realty guided us professionally from site visit to final possession.”</div>
+  <div class="testimonial">“Highly trustworthy team with deep real estate knowledge.”</div>
+  <div class="testimonial">“Transparent dealings and excellent after-sales support.”</div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <div class="contact-details">
+    <p><strong>Phone:</strong> +91 8369815987</p>
+    <p><strong>Email:</strong> shubhrealtynavimumbai@gmail.com</p>
+    <p><strong>Address:</strong> Shop No. 17, Hari Complex, Plot no. 20, Sector-07, Ghansoli, Navi Mumbai - 400701</p>
+  </div>
+
+  <form action="mailto:shubhrealtynavimumbai@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Shubh Realty. All Rights Reserved.</p>
+</footer>
+
+<script>
+  function addProject() {
+    const title = document.getElementById('projectTitle').value;
+    const desc = document.getElementById('projectDesc').value;
+    const img = document.getElementById('projectImage').value || 'https://via.placeholder.com/400x300';
+
+    if (!title || !desc) {
+      alert('Please enter project title and description');
+      return;
+    }
+
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML = `
+      <img src="${img}" alt="${title}">
+      <div class="content">
+        <h3>${title}</h3>
+        <p>${desc}</p>
+        <button onclick="removeProject(this)">Remove</button>
+      </div>`;
+
+    document.getElementById('projectsGrid').appendChild(card);
+
+    document.getElementById('projectTitle').value = '';
+    document.getElementById('projectDesc').value = '';
+    document.getElementById('projectImage').value = '';
+  }
+
+  function removeProject(button) {
+    button.closest('.project-card').remove();
+  }
+</script>
+
+</body>
+</html>
